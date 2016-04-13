@@ -8,13 +8,13 @@
 function CA() {
   this.w = 10;
   // An array of 0s and 1s 
-  this.cells = new Array(width/this.w); 
+  this.cells = new Array(width/this.w); // hold one row or one generation of cells
   for (var i = 0; i < this.cells.length; i++) {
     this.cells[i] = 0;
   }
    // We arbitrarily start with just the middle cell having a state of "1"
-  this.cells[this.cells.length/2] = 1;
-  this.generation = 0;
+  this.cells[this.cells.length/2] = 1; // which cell
+  this.generation = 0; // which row
 
   // An array to store the ruleset, for example {0,1,1,0,1,1,0,1}
     this.ruleset = [0, 1, 0, 1, 1, 0, 1, 0];
@@ -25,7 +25,7 @@ function CA() {
     var nextgen = new Array(this.cells.length);
     // For every spot, determine new state by examing current state, and neighbor states
     // Ignore edges that only have one neighor
-    for (var i = 1; i < this.cells.length-1; i++) {
+    for (var i = 1; i < this.cells.length-1; i++) { // 1 and -1 ignores the edge
       var left   = this.cells[i-1];   // Left neighbor state
       var me     = this.cells[i];     // Current state
       var right  = this.cells[i+1];   // Right neighbor state

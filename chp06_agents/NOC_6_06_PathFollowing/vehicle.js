@@ -24,9 +24,9 @@ function Vehicle(x,y,ms,mf) {
 
     // Predict location 50 (arbitrary choice) frames ahead
     // This could be based on speed 
-    var predict = this.velocity.get();
-    predict.normalize();
-    predict.mult(50);
+    var predict = this.velocity.get(); // starts from origin
+    predict.normalize(); // makes the predict vector 1 pixel
+    predict.mult(50); // makes vector 50 pixels
     var predictLoc = p5.Vector.add(this.position, predict);
    
     // Now we must find the normal to the path from the predicted location

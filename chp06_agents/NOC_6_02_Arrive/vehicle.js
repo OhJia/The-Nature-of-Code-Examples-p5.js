@@ -44,7 +44,7 @@ function Vehicle(x,y) {
     // Steering = Desired minus Velocity
     var steer = p5.Vector.sub(desired,this.velocity);
     steer.limit(this.maxforce);  // Limit to maximum steering force
-    this.applyForce(steer);
+    this.applyForce(steer.mult(-1));
   }
       
   this.display = function() {

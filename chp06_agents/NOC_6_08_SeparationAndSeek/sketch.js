@@ -13,8 +13,8 @@ var slider2;
 var slider3;
 
 function setup() {
-  var text = createP("Drag the mouse to generate new vehicles.");
-  text.position(10,365);
+  //var text = createP("Drag the mouse to generate new vehicles.");
+  //text.position(10,365);
 
   createCanvas(640,360);
   // We are now making random vehicles and storing them in an array

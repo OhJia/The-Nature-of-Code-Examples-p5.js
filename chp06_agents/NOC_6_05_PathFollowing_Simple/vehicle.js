@@ -35,6 +35,7 @@ function Vehicle(x,y,ms,mf) {
     var normalPoint = getNormalPoint(predictLoc, a, b);
 
     // Find target point a little further ahead of normal
+    // like predict
     var dir = p5.Vector.sub(b, a);
     dir.normalize();
     dir.mult(10);  // This could be based on velocity instead of just an arbitrary 10 pixels
@@ -43,6 +44,7 @@ function Vehicle(x,y,ms,mf) {
     // How far away are we from the path?
     var distance = p5.Vector.dist(predictLoc, normalPoint);
     // Only if the distance is greater than the path's radius do we bother to steer
+    // Don't steer if not far from path
     if (distance > p.radius) {
       this.seek(target);
     }
@@ -138,7 +140,7 @@ function Vehicle(x,y,ms,mf) {
     ab.normalize(); // Normalize the line
     // Project vector "diff" onto line by using the dot product
     ab.mult(ap.dot(ab));
-    var normalPoint = p5.Vector.add(a, ab);
+    var normalPoint = p5.Vector.add(a, ab); // move from origin to point a
     return normalPoint;
   }
 }
